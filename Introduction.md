@@ -8,4 +8,9 @@ The syntax of Herbrand logic is the same as the syntax of first order logic. The
 - predicate symbols (also called relation symbols) of arbitrary arity greater then 0
 - function symbols of arbitrary arity
 - constants (that are function symbols of arity 0)
-- terms; recursivly defined 
+- connectives and Parentheses: ¬, →, ↔, ∧, ∨, ( and )
+- quantifiers: ∀(universal) and ∃ (existential);
+
+The arguments of predicates and functions are terms. A term is recursivelly defined by two rules, being:
+1. Every variable and constant is a term.
+2. if $f$ is a function of arity m and $t_1,...t_m$ are terms, then $f(t_1,...,t_m)$ is also a term.
