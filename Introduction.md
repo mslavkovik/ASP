@@ -115,7 +115,7 @@ Program:
 
 p:- -p.
 
-has one stable models M=Ø.
+has one stable model M=Ø.
 
 
 Program: 
