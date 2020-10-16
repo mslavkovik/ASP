@@ -9,7 +9,7 @@ A logic rule r is a structure of the form
 
 H<sub>1</sub> v ... v H <sub>m</sub> :- B<sub>1</sub>, ... , B <sub>k</sub>, not B<sub>k+1</sub>, ... , not B <sub>n</sub>.
 
-Where H<sub>1</sub>, ..., H <sub>m</sub>, B<sub>1</sub>, .., B <sub>k</sub>, B<sub>k+1</sub>, . . .,B <sub>n</sub> are first order logic literals (atoms or strongly negated atoms). The symbol "v" denotes a disjunction. The symbol "," denotes a conjunction.  The symbol ":-" denotes inference. The symbol "not" denotes weak negation, or negation as failure. The logic rule is read as follows: 
+Where H<sub>1</sub>, ..., H <sub>m</sub>, B<sub>1</sub>, .., B <sub>k</sub>, B<sub>k+1</sub>, . . .,B <sub>n</sub> are propositional literals or first order logic literals (atoms or strongly negated atoms). The symbol "v" denotes a disjunction. The symbol "," denotes a conjunction.  The symbol ":-" denotes inference. Strong negation is denoted with "-". The symbol "not" denotes weak negation, or negation as failure. The logic rule is read as follows: 
 "Exactly one of H<sub>1</sub>, ..., H <sub>m</sub> is true when all of B<sub>1</sub>, .., B <sub>k</sub> are true and it cannot be proven that any of the B<sub>k+1</sub>, . . .,B <sub>n</sub> are true".
 
 The part of the rule on the left handside of :- is called *the head* of the rule, while the part of the rule on the right handside of :- is called *the body* of the rule. We can write head(r)={H<sub>1</sub>, ..., H <sub>m</sub>} and body(r)={ B<sub>1</sub>, .., B <sub>k</sub>, B<sub>k+1</sub>, . . .,B <sub>n</sub>}.
@@ -94,6 +94,57 @@ Consider a logic program P and a set M that is a subset of the literals that occ
 
 A set M is a stable model of a logic program P if it is one of the minimal Herbrand models of P<sup>M</sup>. 
 
+A set M is an answer set of a logic program P if it is a stable set of P. 
+
 ## Examples
 
- 
+Program:
+
+p(1,2).
+q(x):- p(x,y), not q(y).
+
+has one stable model M={p(1,2), q(1)}.
+
+Program:
+
+p:- not p.
+
+has no stable models.
+
+Program:
+
+p:- -p.
+
+has one stable models M=Ø.
+
+
+Program: 
+
+p:- not q.
+q:-not p.
+
+has two stable models M={p} and M={q}.
+
+Program:
+
+-p.
+p:- -q
+
+has one stable model M={-p}.
+
+Program:
+
+-p.
+q:- -p
+
+has one stable model M={-p,q}.
+
+Program:
+
+ p v q.
+r:-not q.
+
+has two stable models M={p,r} and M={q}.
+
+
+
