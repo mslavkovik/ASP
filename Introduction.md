@@ -14,3 +14,17 @@ The syntax of Herbrand logic is the same as the syntax of first order logic. The
 The arguments of predicates and functions are terms. A term is recursivelly defined by two rules, being:
 1. Every variable and constant is a term.
 2. if $f$ is a function of arity m and $t_1,...t_m$ are terms, then $f(t_1,...,t_m)$ is also a term.
+
+To introduce the semantics of Herbrand logic, we need to intorduce two concepts: Herbrand Universe and Herbrand Base. 
+
+Given a set of Herbrand logic (or first order logic) formulas S in conjunctive normal form, the *Herbrand Universe* of S is the set of all ground terms formed using just the constants and function symbols in S. 
+
+Consider for example the set 
+S= { p(1), q(2), p(y), r(f(x),x)}
+
+The Herbrand Universe for S is U={1,2,f(1),f(2),f(f(1)),f(f(2)), f(f(f(1))),...}
+
+The *Herbrand base* of S is the set of all ground clauses Cθ where C ∈ S and θ assigns the variables in C to terms in the Herbrand universe.
+
+For the example S= { p(1), q(2), p(y), r(f(x),x)}, the Herbrand base is the set 
+B={1,2,p(1), q(2), p(2), r(f(1),1), r(f(2),2), r(f(f(1)),1),r(f(f(2)),2), r(f(f(f(1))),1),...}
