@@ -128,14 +128,14 @@ has two stable models M={p} and M={q}.
 Program:
 
 -p.
-p:- -q
+p:- -q.
 
 has one stable model M={-p}.
 
 Program:
 
 -p.
-q:- -p
+q:- -p.
 
 has one stable model M={-p,q}.
 
